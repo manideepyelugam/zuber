@@ -15,6 +15,12 @@ module.exports.registerUser = async(req,res,next)=>{
     const hashedPassword = await userModel.hashing(password);
 
     try {
+
+        const isEmail = await userModel.findOne({email});
+        if(isEmail){
+            return res.status(403).json({message:"Email already exist"})
+        }
+
         const user = await userService.createUser({
             firstname:fullname.firstname,
             lastname:fullname.lastname,
@@ -26,7 +32,7 @@ module.exports.registerUser = async(req,res,next)=>{
             return res.status(500).json({ error: 'User creation failed' });
         }
 
-        const token = userModel.generateAuthToken;
+        const token = user.generateAuthToken();
         res.status(201).json({token,user})
         
     } catch (err) {
