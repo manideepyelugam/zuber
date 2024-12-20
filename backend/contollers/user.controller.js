@@ -33,7 +33,7 @@ module.exports.registerUser = async(req,res,next)=>{
         }
 
         const token = user.generateAuthToken();
-        res.status(201).json({token,user})
+        res.status(200).json({token,user})
         
     } catch (err) {
         if (err.code === 11000) { // MongoDB duplicate key error

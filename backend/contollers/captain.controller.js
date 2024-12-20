@@ -105,5 +105,5 @@ module.exports.logoutCaptain = async(req,res,next) => {
 
     await blackListTokenModel.create({token});
 
-    res.status(200).json({message:"Logged out"})
+    res.status(201).json({message:"Logged out"})
 }

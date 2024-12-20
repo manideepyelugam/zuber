@@ -1,8 +1,38 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Userlogin from "./pages/Userlogin"
+import Captainlogin from './pages/Captainlogin'
+import Usersignup from './pages/Usersignup'
+import Captainsignup from './pages/Captainsignup'
+import Start from './pages/Start'
+import UserProtectionWrapper from './pages/UserProtectionWrapper'
+import Userlogout from './pages/Userlogout'
+import Captainhome from './pages/Captainhome'
+import CaptainProtectionWrapper from './pages/CaptainProtectionWrapper'
+import Captainlogout from './pages/Captainlogout'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Routes>
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/login' element={<Userlogin/>}></Route>
+          <Route path='/captain-login' element={<Captainlogin/>}></Route>
+          <Route path='/signup' element={<Usersignup/>}></Route>
+          <Route path='/captain-signup' element={<Captainsignup/>}></Route>
+          <Route path='/home' element={<UserProtectionWrapper><Start/></UserProtectionWrapper>}>
+            </Route>
+
+          <Route path='/user/logout' element={<UserProtectionWrapper><Userlogout/></UserProtectionWrapper>}>
+          </Route>
+
+          <Route path='/captain-home' element={<CaptainProtectionWrapper><Captainhome/></CaptainProtectionWrapper>}></Route>
+          <Route path='/captain-logout' element={<CaptainProtectionWrapper><Captainlogout/></CaptainProtectionWrapper>}></Route>
+
+
+      </Routes>
+    </div>
   )
 }
 
