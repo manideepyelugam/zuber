@@ -19,11 +19,11 @@ const Captainlogin = () => {
       password: password,
     };
 
-    console.log(data);
+    // console.log(data);
     
 
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captain/login`,data)
-    console.log(response);
+    // console.log(response);
     
 
     if(response.status == 201){

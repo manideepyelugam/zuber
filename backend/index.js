@@ -6,6 +6,8 @@ const connectToDB = require('./database/db_connection');
 const userRoute = require('./routes/user.routes');
 const cookieParser = require('cookie-parser');
 const captainRoute = require('./routes/captain.route');
+const mapsRoute = require('./routes/maps.routes');
+const rideRoute = require('./routes/ride.route');
 
 const app = express();
 app.use(cors());
@@ -23,6 +25,9 @@ app.use('/user',userRoute);
 
 app.use('/captain',captainRoute)
 
+app.use('/maps',mapsRoute)
+
+app.use('/ride',rideRoute);
 
 connectToDB();
 

@@ -22,7 +22,7 @@ const Captainlogout = () => {
 
 
   return (
-    <div>Captainlogout</div>
+    <div>Logging Out...</div>
   )
 }
 
